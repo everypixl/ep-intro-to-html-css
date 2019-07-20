@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>EP | Intro HTML/CSS | Part 4</title>
+
+  <meta name="description" content="Every Pixl - Intro to HTML/CSS - Part 1">
+  <meta name="author" content="Every Pixl">
+
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/everypixl.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="lib/css/monokai.css">
+
+  <link rel="stylesheet" href="plugin/accessibility-helper/css/accessibility-helper.css">
+
+  <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+  <script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'css/print/pdf.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+  </script>
+
+  <!-- If use the PDF print sheet so students can print slides-->
+  <link rel="stylesheet" href="css/print/pdf.css" type="text/css" media="print">
+
+  <link rel="icon" type="image/x-icon" href="favicon.ico" />
+
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+  <body>
+
+    <div class="reveal">
+      <div class="slides">
+          <section>
+            <img src="img/everypixl-logo.png" alt="Every Pixl Logo - White text on purple background" class="logo">
+            <h1>Intro to HTML/CSS</h1>
+            <h2>Class 4</h2>
+          </section>
+
+          <section>
+            <h3>Static Positioning</h3>
+            <ul>
+              <li>HTML elements are positioned static by default.</li>
+              <li>Static elements are positioned in the normal ﬂow of the page</li>
+              <li>Static elements ignore top, bottom, right or left property specifications.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Static Positioning</h3>
+            <p style="margin-bottom: 1em;">
+              In normal flow, inline boxes flow from left to right, wrapping to next line when needed.
+            </p>
+<pre><code class="html">&lt;img src="img/icecream-chocolate.png"/&gt;
+&lt;img src="img/icecream-vanilla.png"/&gt;
+&lt;img src="img/icecream-strawberry.png"/&gt;
+...
+&lt;img src="img/icecream-chocolate.png"/&gt;
+&lt;img src="img/iceream-vanilla.png"/&gt;
+</code></pre>
+            <img src="img/icecream-chocolate.png" alt="Chocolate ice cream"/>
+            <img src="img/icecream-vanilla.png" alt="Vanilla ice cream"/>
+            <img src="img/icecream-strawberry.png" alt="Strawberry ice cream"/>
+            <img src="img/icecream-chocolate.png" alt="Chocolate ice cream"/>
+            <img src="img/icecream-vanilla.png" alt="Vanilla ice cream"/>
+            <img src="img/icecream-strawberry.png" alt="Strawberry ice cream"/>
+            <img src="img/icecream-chocolate.png" alt="Chocolate ice cream"/>
+            <img src="img/icecream-vanilla.png" alt="Vanilla ice cream"/>
+          </section>
+
+          <section>
+            <h3>Static Positioning</h3>
+            <p style="margin-bottom: 1em;">In normal flow, block boxes flow from top to bottom, making a new line after every box.</p>
+<pre><code class ="html">&lt;p&gt;Greetings&lt;/p&gt;
+&lt;p&gt;Hello&lt;/p&gt;
+&lt;p&gt;Hi there!&lt;/p&gt;
+</code></pre>
+            <p>Greetings</p>
+            <p>Hello</p>
+            <p>Hi there!</p>
+          </section>
+
+          <!-- Relative Positioning-->
+          <section>
+            <h3>Relative Positioning</h3>
+            <ul>
+              <li>Takes the element out of the normal flow, allowing it to be moved to the top, left, right or bottom. </li>
+              <li>Does not affect the elements surrounding it.</li>
+              <li>Makes an element a "positioning context" in which to position other elements relative to it.</li>
+              <li>Relative positioning and absolute positioning are used together.</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Relative Positioning</h3>
+            <p>The "relative" value will still put the element in the normal flow, but then offset it according to top/left/right/bottom properties.</p>
+<pre><code class="css">.relative {
+  position: relative;
+  left: 80px;
+  top: 20px;
+  height: 100px;
+  background-color: yellow;
+}
+</code></pre>
+            <div style="border:2px solid black;">
+              <div style="position: relative; left: 80px; top: 20px; height: 100px; background-color: yellow; color:black; text-align:left">
+                Hello, hi!
+              </div>
+            </div>
+          </section>
+
+          <!-- Absolute positioning-->
+          <section >
+            <h3>Absolute Positioning</h3>
+            <ul>
+              <li>Positions element outside of the normal flow.</li>
+              <li>An absolutely positioned element is offset from its container block, positioned relative.</li>
+              <li>Its container block is the first element that has a position other than static.</li>
+              <li>If no such element is found, the container block is &lt;html&gt;.</li>
+              <li>Other elements act as if it's not there.</li>
+              <li>Determined by its oﬀset values in the properties top, bottom, right and left.</li>
+            </ul>
+          </section>
+
+          <section  style="border: 1px solid black">
+            <h3>Absolute Positioning</h3>
+            <p>The "absolute" value will take the element out of the normal flow and position it in relation to the window (or the closest non-static element).</p>
+<pre><code class="css">.top {
+  position: absolute;
+  top: -40px;
+  right: 10px;
+  background-color: yellow
+}
+.bottom {
+  position: absolute;
+  bottom: -40px;
+  left:60px;
+  background-color: green
+}
+</code></pre>
+            <div>
+              <div style="position: absolute; top: -40px; right: 10px; background-color: yellow; color:black">
+                Up here
+              </div>
+              <div style="position: absolute; bottom: -40px; left:60px; background-color: green">
+                Down here
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Example: Absolute Positioning</h3>
+            <div class="halfblock">
+              <div>
+                <p>Here’s an example of an image with a caption absolutely positioned over top of it.</p>
+                <p>The containing div has a position of relative, and the caption has a position of absolute.</p>
+              </div>
+              <div>
+                <img src="img/example-absolute.png" alt="Photo with caption overlayed on top" />
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Z-index</h3>
+            <p>Sometimes elements overlap. You can change the order of overlapping with z-index. The element with highest z-index goes on top.</p>
+<pre><code class ="css">.bottom {
+  position: absolute;
+  bottom: 10px;
+  left:60px;
+  background-color: yellow;
+}
+.top {
+  position: absolute;
+  bottom: 15px;
+  left:60px;
+  background-color: green;
+  z-index: 2;
+}
+</code></pre>
+            <div style="position: absolute; bottom: -20px; left:60px; background-color: yellow; color:black">Bottom</div>
+            <div style="position: absolute; bottom: -15px; left:60px; background-color: green; z-index: 2; ">Top</div>
+          </section>
+
+          <section>
+            <h3>Let’s Develop it!</h3>
+            <p>Let’s add some positioning.</p>
+            <p>Let’s create a div that contains an image and a caption, and position the caption absolutely overtop the image.</p>
+          </section>
+
+          <!-- Float-->
+          <section>
+            <h3>Float</h3>
+            <ul style="font-size: 90%;">
+              <li>
+                <strong>Floating</strong> an element takes it in the normal flow, as far to the left or right of it's containing element as possible.
+              </li>
+              <li>
+                Any other elements, such as paragraphs or lists, will wrap around the floated element.
+              </li>
+              <li>
+                Always specify a width when floating an element, otherwise the element is likely to take up the whole page and not appear floated.
+              </li>
+              <li>
+                You can specify a) whether an element is floated or not, and b) which side it ﬂoats on.
+              </li>
+              <li>
+                This is an older way of laying out elements, but you may still see it.
+              </li>
+            </ul>
+          </section>
+
+          <!--example float-->
+          <section>
+            <h3>Float: Example</h3>
+            <p>Below a &lt;blockquote&gt; is floated to the left, allowing text to wrap around it on the right</p>
+            <img src="img/example-floatbq.png" alt="example float" />
+          </section>
+
+          <section>
+            <h3>Float</h3>
+<pre><code class="css">.float {
+  float: left;
+  width: 200px;
+  background: yellow;
+}
+</code></pre>
+            <div style ="float:left; text-align: left;width:200px;background:yellow; color:black; padding: 10px;">
+              <small>Hi, I'm a yellow box with black text.<br/>
+              I like to hang out on the left side.</small>
+            </div>
+            <div class="left">Not floating element</div>
+            <div class="left">Not floating element</div>
+            <div class="left">Not floating element with wrapping Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </div>
+          </section>
+
+          <section>
+            <h3>Placing elements side by side</h3>
+            <p>If you want two block level elements to be side by side, you need to float both elements. One left, and one right.</p>
+            <div style="border:5px solid black; padding:20px; width:720px; height:160px; margin:0 auto;">
+              <div style="background-color: #688836; color: white; width:300px; height:160px; margin-right:20px; float:left;">
+                <p>width: 300px;<br />
+                float: left;</p>
+              </div>
+              <div style="background-color: #C3C3C3; width:400px; height:160px; float:right;">
+                <p>width: 400px;<br />
+                float: right;</p>
+              </div>
+            </div>
+          </section>
+
+          <!-- Clear-->
+          <section>
+            <h3>Clear</h3>
+            <ul>
+              <li>Clearing tells the element on which side (right, left, both) other elements <strong>cannot</strong> appear. </li>
+              <li>If you had an image floated left, and you did not want the paragraph to appear next to it, you would add <strong>clear: left;</strong> to the paragraph.</li>
+              <li>Clearing both sides makes sure ﬂoats don’t ﬂow past the clear element.</li>
+            </ul>
+<pre><code class="css">clear: right;
+clear: left;
+clear: both;
+</code></pre>
+          </section>
+
+          <section>
+            <h3>Clear</h3>
+<pre><code class ="css">.float {
+  float: left;
+  width: 50px;
+  background: yellow;
+}
+.clear-left {
+  clear: left;
+}
+</code></pre>
+            <div style ="float:left;width:50px;background:yellow; color:black; ">
+              hi<br/>
+              hi<br/>
+              hi
+            </div>
+            <div class="left">Not floating element</div>
+            <div class="left">Not floating element</div>
+            <div class="left" style="clear: left;">Non-floating element with a class of <strong>.clear-left</strong></div>
+          </section>
+
+          <!-- Exercise-->
+          <section>
+            <h3>Let’s Develop It</h3>
+            <p>Let’s float our side bar and content areas.</p>
+          </section>
+
+          <section>
+            <h3>Flexbox: A Better Way</h3>
+            <ul>
+              <li>
+                Short for The Flexible Box Module, was introduced in 2017
+              </li>
+              <li>
+                Allows you to more easily control vertical and horizontal layout outs
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Some important terms</h3>
+            <img
+              src="img/introhtml1-flexbox-container-items.png"
+              alt="Diagram showing flexbox items enclosed in a flexbox container" />
+          </section>
+
+          <section>
+            <h3>Flexbox</h3>
+              <p style="margin-bottom: 1em;">
+                The container element has to be declared to use the flexbox layout
+              </p>
+<pre><code class="css">.flex-container: {
+  display: flex;
+}
+</code></pre>
+<br />
+<pre><code class="html">&lt;div class="flex-container"&gt;
+  &lt;div&gt;item1&lt;/div&gt;
+  &lt;div&gt;item2&lt;/div&gt;
+  &lt;div&gt;item3&lt;/div&gt;
+  &lt;div&gt;item4&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+            <p style="margin-top: 1em;">
+              The container&rsquo;s children will inherit the flexbox property.
+            </p>
+          </section>
+
+          <section>
+            <h3>Create a row of items</h3>
+<pre style="margin-bottom: 1em;"><code class="css">.flex-container {
+  display: flex;
+  flex-direction: row; /* This is also the default */
+}
+</code></pre>
+          <div style="display: flex; background-color: #7f4aff; height: 50px; font-size: 14px; max-width: 60vw; text-align: center; margin-left: 10em;">
+            <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item1</div>
+            <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item2</div>
+            <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item3</div>
+            <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item4</div>
+          </div>
+          </section>
+
+          <section>
+            <p style="margin-bottom: 1em;">
+              We can horizontally align the items <br />
+              with the <span class="code">justify-content</span> property
+            </p>
+<pre style="margin-bottom: 1em;"><code class="css">.flex-container {
+  display: flex;
+  flex-direction: row; /* This is also the default */
+  justify-content: center;
+}
+</code></pre>
+            <div style="display: flex; background-color: #7f4aff; height: 50px; font-size: 14px; max-width: 60vw; text-align: center; margin-left: 10em; justify-content: center;">
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item1</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item2</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item3</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item4</div>
+            </div>
+          </section>
+
+          <section>
+            <p style="margin-bottom: 1em;">
+              Alternatively, we can ask flexbox to  <br />
+              space out the items
+            </p>
+<pre style="margin-bottom: 1em;"><code class="css">.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* Other useful options: space-evenly, space-between */
+}
+</code></pre>
+            <div style="display: flex; background-color: #7f4aff; height: 50px; font-size: 14px; max-width: 60vw; text-align: center; margin-left: 10em; justify-content: space-around;">
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item1</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item2</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item3</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item4</div>
+            </div>
+          </section>
+
+          <section>
+            <p style="margin-bottom: 1em;">
+              Or we can align the items to the right side!
+            </p>
+<pre style="margin-bottom: 1em;"><code class="css">.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+</code></pre>
+            <div style="display: flex; background-color: #7f4aff; height: 50px; font-size: 14px; max-width: 60vw; text-align: center; margin-left: 10em; justify-content: flex-end;">
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item1</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item2</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item3</div>
+              <div style="background-color: #ffed4a; height: 20px; margin: 10px; padding: 5px;">item4</div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Flexbox columns</h3>
+            <p style="margin-bottom: 1em;">
+              Columns are pretty similar. <br />
+              We just change the direction!
+            </p>
+            <div class="halfblock">
+              <div style="min-width: 60%;">
+<pre style="margin-bottom: 1em;"><code class="css">.flex-container {
+  display: flex;
+  flex-direction: column; /* This part */
+}
+</code></pre>
+              </div>
+              <div style="display: flex; flex-direction: column; background-color: #7f4aff; width: 120px; font-size: 14px; max-width: 60vw; text-align: center; margin-left: 10em;">
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item1</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item2</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item3</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item4</div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <div class="halfblock" style="height: 50vh; margin-top: -3em;">
+              <div style="display: flex; flex-direction: column; background-color: #7f4aff; width: 120px; font-size: 14px; max-width: 60vw; text-align: center; margin-left: 10em; justify-content: center;">
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item1</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item2</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item3</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item4</div>
+              </div>
+              <div style="display: flex; flex-direction: column; background-color: #7f4aff; width: 120px; font-size: 14px; max-width: 60vw; text-align: center; margin-left: 10em; justify-content: space-between">
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item1</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item2</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item3</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item4</div>
+              </div>
+              <div style="display: flex; flex-direction: column; background-color: #7f4aff; width: 120px; font-size: 14px; max-width: 60vw; text-align: center; margin-left: 10em; justify-content: flex-end">
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item1</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item2</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item3</div>
+                <div style="background-color: #ffed4a; height: 50px; margin: 10px 20px; padding: 5px;">item4</div>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Flexbox Resources</h3>
+            <ul>
+              <li>
+                <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank" rel="noopener noreferrer">
+                  CSS Tricks Guide to Flexbox
+                </a>
+              </li>
+              <li>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox" target="_blank" rel="noopener noreferrer">
+                  MDN&rsquo;s Basic Concepts of Flexbox
+                </a>
+              </li>
+              <li>
+                <a href="https://flexboxfroggy.com/" target="_blank" rel="noopener noreferrer">
+                  Flexbox Froggy
+                </a>
+                - Get the froggy back to its lily pad while learning flexbox!
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>CSS Grid</h3>
+            <ul>
+              <li>
+                An even more poweful way of laying out pages is to use CSS Grid.
+              </li>
+              <li>
+                It is pretty well supported, but is not currently as widely used.
+              </li>
+              <li>Some resources
+                <ul style="margin-top: 0 !important">
+                  <li>
+                    <a href="https://css-tricks.com/snippets/css/complete-guide-grid/" target="_blank" rel="noopener noreferrer">
+                      CSS Tricks Guide to CSS Grid
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://learncssgrid.com/" target="_blank" rel="noopener noreferrer">
+                      Learn CSS Grid
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://gridbyexample.com/examples/" target="_blank" rel="noopener noreferrer">
+                      Grid By Example
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h2>Questions?</h2>
+          </section>
+</div>
+<!-- Close slides -->
+<!-- Closes Reveal -->
+
+<script src="js/reveal.js"></script>
+
+<script>
+
+  // More info https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    center: true,
+    hash: true,
+
+    transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+    // More info https://github.com/hakimel/reveal.js#dependencies
+    dependencies: [
+      { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'plugin/highlight/highlight.js', async: true },
+      { src: 'plugin/search/search.js', async: true },
+      { src: 'plugin/zoom-js/zoom.js', async: true },
+      { src: 'plugin/notes/notes.js', async: true }
+    ]
+  });
+
+</script>
+
+  </body>
+</html>

@@ -1,0 +1,111 @@
+/**
+ * Primary Every Pixl theme for reveal.js.
+ * Author: Every Pixl
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Import font faces
+
+// header fonts
+@import url(https://fonts.googleapis.com/css?family=Oxygen:300,400,700&display=swap&subset=latin-ext);
+
+// body fonts
+@import url(https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900&subset=latin-ext);
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i&display=swap&subset=greek,greek-ext,latin-ext);
+
+// Color Palette
+$parchment: #f9f9f9;
+$charcoal: #221f29;
+$slate: #262529;
+$soot: #3e3c42;
+$eightiespink:   #d33682;
+$epbranding: #7f4aff;
+$fushia: #db4aff; //analog color 1
+$forgetmenot: #4a95ff; //analog color 2
+$cornflower: #4a56ff; // purply blue
+$rubberduck: #ffed4a; //contrast 1
+
+$backgroundColor: $parchment;
+
+$mainColor: $soot;
+
+$headingColor: $epbranding;
+$headingTextShadow: none;
+$heading1TextShadow: none;
+
+$linkColor: $selectionBackgroundColor;
+$linkColorHover: lighten( $linkColor, 20% );
+$selectionBackgroundColor: $eightiespink;
+
+img.logo {
+  width: 70vw;
+}
+
+img {
+  border: 0 !important;
+  box-shadow: none !important;
+  margin-top: 0.5em !important;
+}
+
+h6 {
+  margin-top: 1em !important;
+  margin-left: 4em !important;
+  font-size: 0.9em !important;
+  text-transform: none !important;
+  font-style: italic;
+  font-variant: normal;
+  text-align: left;
+}
+
+.left {
+  text-align: left;
+}
+
+.answer {
+  color: $forgetmenot;
+  margin-top: 1em;
+}
+
+@mixin bodyBackground() {
+    background: $backgroundColor;
+}
+
+p {
+  margin-top: 0.5em !important;
+}
+
+div.halfblock {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+
+  & > * {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+      padding-right: 0.5em;
+    }
+  }
+}
+
+div.column {
+  display: flex;
+  flex-direction: column;
+}
+
+.code {
+  font-family: $codeFont;
+  font-weight: 600;
+}
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------
